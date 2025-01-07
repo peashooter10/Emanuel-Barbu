@@ -21,7 +21,7 @@ sortare_combobox.set("Alege un algoritm")
 ttk.Label(mainframe, text="Algoritm:").grid(column=0, row=0, sticky=W)
 
 # Combobox for selecting the number of elements
-elemente = ["10", "20", "30"]
+elemente = ["32", "64", "128"]
 selected_element = StringVar()
 element_combobox = ttk.Combobox(mainframe, textvariable=selected_element, values=elemente)
 element_combobox.grid(column=0, row=3, pady=10)
@@ -29,7 +29,9 @@ element_combobox.set("Nr. de elemente")
 ttk.Label(mainframe, text="Nr. Elemente:").grid(column=0, row=2, sticky=W)
 
 # Create a canvas for visualization
-canvas = Canvas(root, width=400, height=200, background='black')
+latime_canvas=600
+inaltime_canvas=300
+canvas = Canvas(root, width=latime_canvas, height=inaltime_canvas, background='black')
 canvas.grid(column=0, row=2, sticky=(N, W, E, S))
 
 # List to hold bar objects and their lengths
@@ -48,9 +50,9 @@ def generate_bars():
     bar_width = canvas.winfo_width() // num_bars
 
     for i in range(num_bars):
-        height = random.randint(20, 180)
+        height = random.randint(10, 190)
         bar = canvas.create_rectangle(
-            i * bar_width, 200, (i + 1) * bar_width, 200 - height, fill='white'
+            i * bar_width, inaltime_canvas, (i + 1) * bar_width, inaltime_canvas - height, fill='white'
         )
         barlist.append(bar)
         lengthlist.append(height)
