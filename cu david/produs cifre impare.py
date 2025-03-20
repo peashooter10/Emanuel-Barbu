@@ -1,8 +1,12 @@
-def f(n):
-    p=1
-    while n>0:
-        if (n%10)%2!=0:
-            p=p*(n%10)
-        n=n//10
-    print(p)
-f(2531)
+def numere_cu_k_divizori(l, k):
+    a=[]
+    for i in range(0,len(l)):
+        c=0
+        for j in range(1,i+1):
+            if i % j == 0:
+                c += 1
+        if c==k:
+            a.append(i)
+        print(a)
+
+

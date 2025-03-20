@@ -5,5 +5,4 @@ def suma(n):
         n=n//10
     print(s)
 
-numar=int(input())
-suma(numar)
+suma(12345)
