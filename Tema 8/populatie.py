@@ -17,10 +17,10 @@ def generare_judete():
     return judet_final
 
 def generare_an():
-    categorii_de_varsta=[0,5,10,15,20,25,30,35,40,45,50,55,60,65,70,75,80]
+    categorii_de_varsta=[5,10,15,20,25,30,35,40,45,50,55,60,65,70,75,80,85]
     probabilitate=[5.02,5.37,5.74,5.45,5.00,5.03,6.53,6.53,7.62,7.70,8.74,5.30,6.40,6.63,5.20,3.23,1.93]
     categorie=random.choices(categorii_de_varsta,weights=probabilitate)[0]
-    varsta=random.randint(max(0,categorie-4),categorie)
+    varsta=random.randint(categorie-4,categorie)
     an_final=(2025-varsta)
     return an_final
 
@@ -40,8 +40,6 @@ def generare_luna_zi():
 
 def generare_sex():
     sex=random.choices([1,2],[48.56,51.48])[0]
-    strain=random.choices([0,7],[99,1])[0]
-    sex=sex+strain
     return sex
 
 def generare_nume(x):
@@ -169,7 +167,15 @@ def cautare():
                 print(i)
     print(c)
 
-random_cnp()
+def maxim():
+    maxim=-1
+    for i in range(1000000):
+        an=generare_an()
+        if an>maxim:
+            maxim=an
+        print(an)
+    print(maxim)
+
 
 
 
