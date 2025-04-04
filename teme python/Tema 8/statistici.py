@@ -123,5 +123,6 @@ def arata():
         else:
             print("invalid")
 
-arata()
+
+distributie_hash()
 
