@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manager Studenți</title>
+    <style>
+        /* Simple styling */
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        table, th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+
+        th {
+            background-color: #f2f2f2;
+            font-weight: bold;
+        }
+
+        input, button {
+            padding: 5px;
+            margin: 5px 0;
+        }
+
+        .error-message {
+            color: red;
+            font-weight: bold;
+        }
+
+        .success-message {
+            color: green;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <h1>Manager Studenți</h1>
+
+    <!-- Table section -->
+    <h2>Lista Studenți</h2>
+    <div id="showTable">
+        <!-- JavaScript will populate this area with the student table -->
+    </div>
+
+    <!-- Add student form -->
+    <h2>Adăugare Student Nou</h2>
+    <form id="addStudentForm">
+        <label for="studentNameInput">Nume student:</label>
+        <input type="text" id="studentNameInput" placeholder="Introduceți numele studentului" required>
+        <button type="submit" id="submitStudentButton">Adaugă</button>
+    </form>
+
+    <!-- Status messages will appear here -->
+    <div id="statusMessage"></div>
+
+    <!-- Link to JavaScript file -->
+    <script src="{{ url_for('static', filename='things.js') }}"></script>
+</body>
+</html>

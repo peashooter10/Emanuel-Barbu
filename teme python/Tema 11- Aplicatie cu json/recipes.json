@@ -1,0 +1,12 @@
+{
+    "nume_1": {
+        "ingredients": "ingredient_1, ingredient_2, ingredient_3\ningredient_4\ningredient_5",
+        "instructions": "instructiune_1, instructiune_2, instructiune_3",
+        "id": 1
+    },
+    "nume_2": {
+        "ingredients": "ingredient_1\ningredient_2\ningredient_3\ningredient_4",
+        "instructions": "instructiune_1, instructiune_2, instructiune_3",
+        "id": 2
+    }
+}
