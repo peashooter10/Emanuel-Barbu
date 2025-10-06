@@ -1,0 +1,29 @@
+#include <iostream>
+using namespace std;
+
+struct alfabet {
+    wchar_t lit;
+    int contor = 0;
+} litere[30];
+
+void initializare_alfabet(alfabet litere[]) {
+    int i;
+    wchar_t l = L'a';
+    for (i = 0; i < 26; i++) {
+        litere[i].lit = l;
+        l++;
+    }
+    litere[26].lit = L'ă';
+    litere[27].lit = L'î';
+    litere[28].lit = L'ș';
+    litere[29].lit = L'ț';
+}
+
+int main() {
+    locale::global(locale("ro_RO.utf8"));
+    initializare_alfabet(litere);
+    for (int i = 0; i < 30; i++) {
+        wcout << litere[i].lit << L'\n';
+    }
+    return 0;
+}
