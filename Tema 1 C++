@@ -4,6 +4,7 @@
 #include <string>
 using namespace std;
 
+//algoritmul de bubblesort in care elementul cu cea mai mare valoare din lista este mutat cu veciunul sau pana cand "iese la suprafata", adica ajunge la capatul vectorului, iar procesul se repeta
 void bubble_sort(int v[], int dim){
     bool sortat;
     int i,aux;
@@ -17,6 +18,7 @@ void bubble_sort(int v[], int dim){
         }
     }while(!sortat);
 }
+//algoritmul de selectsort in care elementul cu cea mai mica valoare este mutat la inceputul vectorului, iar apoi se repeta termenii
 void select_sort(int v[], int dim){
     int i,j,min,aux;
     for(i=0;i<dim-1;i++){
@@ -32,6 +34,7 @@ void select_sort(int v[], int dim){
         }
     }
 }
+//algoritmul de quicksort, se alege un pivot, iar elementele mai mici decat pivotul se muta in stanga pivotului, cele mai mari in dreapta, iar procesul este recursiv pentru celelalte subvectori
 void quick_sort(int v[], int st, int dr){
     if(st < dr){
         int m = (st + dr) / 2;
@@ -53,6 +56,7 @@ void quick_sort(int v[], int st, int dr){
         quick_sort(v, i + 1 , dr);
     }
 }
+//subprogramul care transforma string-ul de numere intr-un vector static pentru sortarea acestuia
 int conversie_string_vector(string numere_fisier, int num[]) {
     int lungime = numere_fisier.length();
     int j = 0;
@@ -63,10 +67,10 @@ int conversie_string_vector(string numere_fisier, int num[]) {
             j++;
             num[j] = 0;
         } else if (isdigit(numere_fisier[i])) {
-            num[j] = num[j] * 10 + (numere_fisier[i] - '0');
+            num[j] = num[j] * 10 + (numere_fisier[i] - '0');//transformam din caractere in numere
         }
     }
-    return j + 1;
+    return j + 1;//returnam dimensiunea vectorului
 }
 void afisare(int v[], int dim) {
     for (int i = 0; i < dim; i++)
@@ -75,9 +79,12 @@ void afisare(int v[], int dim) {
 
 int main() {
     int varianta;
-    ifstream myFile("numere.csv");
+    int dim=0;
+    int num[100];
+    ifstream myFile("numere.csv");//deschdem fisierul numere.csv
     string line, numere_fisier = "";
     cout << "Sirul citit este: ";
+    //prelucram fisierul csv, cand intalnim o virgula trecem la rand nou 
     if (myFile.is_open()) {
         while (getline(myFile, line)) {
             stringstream ss(line);
@@ -89,7 +96,7 @@ int main() {
         }
         myFile.close();
 
-
+        //eliminam virgulele
         if (!numere_fisier.empty() && numere_fisier.back() == ',') {
             numere_fisier.pop_back();
         }
@@ -98,8 +105,8 @@ int main() {
 
     cout << '\n';
 
-    int num[100];
-    int dim = conversie_string_vector(numere_fisier, num);
+    //apelam functia de conversie, dim este dimensiunea vectorului static, numere_fisier string-ul de numere care e prelucrat, iar num este vectorul cre eapelat ca un parametru transmis prin pointer
+    dim = conversie_string_vector(numere_fisier, num);
 
     cout << "Vectorul de numere este: ";
     afisare(num, dim);
@@ -109,6 +116,7 @@ int main() {
     cin >> varianta;
     cout << '\n';
 
+    //selectam algorimtul folosit
     switch (varianta) {
         case 1:
             bubble_sort(num, dim);
