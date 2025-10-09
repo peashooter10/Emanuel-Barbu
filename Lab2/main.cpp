@@ -17,14 +17,17 @@ void sorteaza(Student *tab[], int n,bool (* comparator)(Student*, Student*)) {
 int main() {
 
     ifstream myFile("studenti.csv");
-    string nume_complet, spec, an, media;
+    string nume, prenume, spec, an, media;
     if (myFile.is_open()) {
         string line;
         while (getline(myFile,line)) {
             stringstream ss(line);
 
-            getline(ss,nume_complet,',');
-            cout<<nume_complet<<" ";
+            getline(ss,nume,',');
+            cout<<nume<<" ";
+
+            getline(ss,prenume,',');
+            cout<<prenume<<" ";
 
             getline(ss,spec,',');
             cout<<spec<<" ";
