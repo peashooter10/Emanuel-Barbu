@@ -42,6 +42,7 @@ int main() {
 
         }
     }myFile.close();
-
+    strcat(nume, " ");
+    strcat(nume,prenume);
     return 0;
 }
